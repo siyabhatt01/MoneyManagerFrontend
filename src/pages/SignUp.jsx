@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState }from 'react'
 import { assets } from '../assets/assets.js'
 import Input from '../components/Input.jsx';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,8 @@ import toast from 'react-hot-toast';
 import { LoaderCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+
+
 const SignUp = () => {
 
   const [fullName, setFullName] = useState("");
@@ -18,7 +20,7 @@ const SignUp = () => {
   const [loading, setLoading]=useState(false);
 
   const navigate = useNavigate();
-  
+
   const handleSubmit = async (e) => {
 
     e.preventDefault();
@@ -56,8 +58,15 @@ const SignUp = () => {
         navigate("/login");
       }
     } catch (err) {
-      console.log('Something went wrong', err);
-      setError(err.message);
+      if(err.response && err.response.data.message)
+          {
+            setError(err.response.data.message);
+          }
+          else 
+          {
+             console.log("Something went wrong", err);
+             setError(err.message);
+          }
     }finally{
       setLoading(false);
     }

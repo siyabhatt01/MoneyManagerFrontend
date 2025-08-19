@@ -1,31 +1,71 @@
-import React from 'react'
-import { useState } from 'react'
-import {assets} from '../assets/assets.js'
+import React, { useState } from 'react'
+import { assets } from '../assets/assets.js'
 import Input from '../components/Input.jsx';
 import { Link } from 'react-router-dom';
+import { validateEmail } from '../util/validation.js';
+import axiosConfig from '../util/axiosConfig.jsx';
+import { API_ENDPOINTS } from '../util/apiEndpoints.js';
+import toast from 'react-hot-toast';
+import { LoaderCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../context/AppContext.jsx';
+import { useContext } from 'react';
 
 const Login = () => {
 
-  const [email,setEmail]=useState("");
-  const [password,setPassword]= useState("");
-  const [error,setError] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading]=useState(false);
+    const {setUser}=useContext(AppContext);
+    const navigate=useNavigate();
 
   const handleSubmit = async(e)=>{
     
         e.preventDefault();
+        setLoading(true);
   
         if(!validateEmail(email))
         {
           setError("Please enter a valid email address");
+          setLoading(false);
           return;
         }
         if(!password)
         {
           setError("Please enter your password");
+          setLoading(false);
           return;
         }
   
         setError("");
+
+        //LOGIN API CALL
+        try{
+          const response=await axiosConfig.post(API_ENDPOINTS.LOGIN, {email,password});
+          const {token,user}=response.data;
+          if(token)
+          {
+            localStorage.setItem("token",token);
+            setUser(user);
+            navigate("/dashboard");
+          }
+        }catch(err)
+        {
+          if(err.response && err.response.data.message)
+          {
+            setError(err.response.data.message);
+          }
+          else 
+          {
+             console.log("Something went wrong", err);
+             setError(err.message);
+          }
+         
+        }
+        finally{
+          setLoading(false);
+        }
     
   }
 
@@ -59,10 +99,16 @@ const Login = () => {
                 <p className='text-red-800 text-sm text-center bg-red-50 p-2 rounded'>{error}</p>
               )}
               <button
-                className="w-full py-3 text-lg font-medium bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition"
+                className={`w-full py-3 text-lg font-medium bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2 ${loading ? 'opacity-60 cursor-not-allowed':''}`}
+                disabled={loading}
                 type="submit"
               >
-                LOG IN
+                {loading ? (
+                  <>
+                  <LoaderCircle className='animate-spin w-5 h-5'/>
+                  Logging in...
+                  </>
+                ) : ("LOG IN")}
               </button>
               <p className='text-sm text-slate-800 text-center mt-6'>Don't have an account?
                 <Link to="/signUp" className='font-medium text-primary underline hover:text-primary-dark transition-colors'>SignUp</Link>

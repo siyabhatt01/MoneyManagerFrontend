@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 //create context
-const AppContext=createContext(); 
+export const AppContext=createContext(); 
 
 //provide context
 export const AppContextProvider = ({children})=>{
@@ -9,7 +9,8 @@ export const AppContextProvider = ({children})=>{
     const [user,setUser]=useState(null);
 
     const contextValue={
-        user
+        user,
+        setUser
     }
 
     return (
