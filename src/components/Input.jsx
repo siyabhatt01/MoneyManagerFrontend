@@ -26,7 +26,7 @@ const Input=({label, value, onChange, placeholder, type})=>{
                     <span className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer">
                     {
                         showPasssword ? (
-                            <Eye size={20} className="text-blue-600" onClick={toggleShowPassword}/>
+                            <Eye size={20} className="text-purple-700" onClick={toggleShowPassword}/>
                         ):
                         <EyeOff size={20} className="text-slate-400" onClick={toggleShowPassword}/>
                     }

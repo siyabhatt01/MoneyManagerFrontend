@@ -99,7 +99,7 @@ const Login = () => {
                 <p className='text-red-800 text-sm text-center bg-red-50 p-2 rounded'>{error}</p>
               )}
               <button
-                className={`w-full py-3 text-lg font-medium bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2 ${loading ? 'opacity-60 cursor-not-allowed':''}`}
+                className={`w-full py-3 text-lg font-medium bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition flex items-center justify-center gap-2 ${loading ? 'opacity-60 cursor-not-allowed':''}`}
                 disabled={loading}
                 type="submit"
               >

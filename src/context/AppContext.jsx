@@ -8,9 +8,14 @@ export const AppContextProvider = ({children})=>{
 
     const [user,setUser]=useState(null);
 
+    const clearUser=()=>{
+        setUser(null);
+    }
+
     const contextValue={
         user,
-        setUser
+        setUser,
+        clearUser
     }
 
     return (
