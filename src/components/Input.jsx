@@ -20,10 +20,12 @@ const Input=({label, value, onChange, placeholder, type,isSelect,options})=>{
                     <select className="w-full bg-trasparent outline-none border border-gray-300 rounded-md px-2 py-3 text-gray-700 leading focus:outline-none focus: border-blue-500 "
                     value={value}
                     onChange={(e)=>onChange(e)}>
-                        {
-                            options.map((option)=>(
+                            <option value="" disabled>
+                                -- Select a category --
+                            </option>
+                            {options.map((option) => (
                                 <option key={option.value} value={option.value}>
-                                    {option.label}
+                                {option.label}
                                 </option>
                             ))
                         }
