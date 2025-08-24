@@ -17,7 +17,7 @@ const AddIncomeForm = ({onAddIncome,categories}) => {
     }
 
   return (
-    <div>
+    <div className="space-y-2">
         <EmojiPickerPopup
             icon={income.icon}
             onSelect={(selectedIcon)=>handleChange('icon',selectedIcon)}
@@ -50,10 +50,10 @@ const AddIncomeForm = ({onAddIncome,categories}) => {
             placeholder=""
             type="date"
         />
-        <div className="flex justify-end mt-6">
+        <div className="flex justify-end pt-4">
             <button
                 onClick={()=>{onAddIncome(income)}}
-                className='cursor-pointer inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-green-600    bg-green-100 rounded-lg shadow-sm hover:bg-green-200 hover:text-green-900 active:bg-purple-300 transition-colors'>
+                className='cursor-pointer inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-green-500 to-green-600 rounded-xl shadow-lg hover:from-green-600 hover:to-green-700 hover:shadow-xl active:from-green-700 active:to-green-800 transition-all duration-200 transform hover:-translate-y-0.5'>
                 Add Income
             </button>
         </div>

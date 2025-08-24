@@ -41,13 +41,13 @@ const Filter = () => {
   return (
     <Dashboard activeMenu="Filters">
         <div className="my-5 mx-auto">
-          <div className="flex justify-between items-center mb-4">
+          <div className="flex justify-between items-center mb-4 ">
             <h2 className="text-2xl font-semibold">
               Filter Transactions
             </h2>
           </div>
-          <div className="bg-white shadow-md rounded-xl p-4 border p-4 mt-5 p-4 mb-4">
-            <div className="flex items-center justify-between mb-4">
+          <div className="bg-gray-900 text-gray-200 shadow-md rounded-xl p-4 border p-4 mt-5  mb-4 ">
+            <div className="flex items-center justify-between mb-4 ">
               <h5 className="text-lg font-semibold">
                 Select the filters
               </h5>
@@ -62,7 +62,7 @@ const Filter = () => {
               </div>
               <div>
                 <label htmlFor="startdate" className='block text-sm font-medium mb-1'>Start Date</label>
-                <input type="date" id='startdate' className='w-full border rounded px-3 py-2' value={startDate} onChange={e=>setStartDate(e.target.value)}/>
+                <input type="date" id='startdate' className='w-full border rounded px-3 py-2 ' value={startDate} onChange={e=>setStartDate(e.target.value)}/>
               </div>
               <div>
                 <label htmlFor="enddate" className='block text-sm font-medium mb-1'>End Date</label>
@@ -94,8 +94,8 @@ const Filter = () => {
               </div>
             </form>
           </div>
-          <div className='bg-white shadow-md rounded-xl p-4 border p-4 mt-5 p-4 mb-4'>
-            <div className="flex justify-between items center mb-4">
+          <div className='bg-gray-900 text-gray-200 shadow-md rounded-xl p-4 border p-4 mt-5 p-4 mb-4'>
+            <div className="flex justify-between items center mb-4 ">
               <h5 className="text-lg font-semibold">Transactions</h5>
             </div>
             {

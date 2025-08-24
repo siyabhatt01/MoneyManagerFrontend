@@ -70,17 +70,17 @@ const Login = () => {
   }
 
   return (
-     <div className='h-screen w-full relative flex items-center justify-center overflow-hidden'>
-      <img src={assets.signup_bg} alt='background image'  className='absolute inset-0 w-full h-full object-cover filter blur-sm'/>
+     <div className='h-screen w-full relative flex items-center justify-center overflow-hidden bg-gray-950'>
+      <img src={assets.signup_bg} alt='background image'  className='absolute inset-0 w-full h-full object-cover filter blur-sm opacity-20'/>
       <div className='relative z-10 w-full max-w-lg px-6'>
-          <div className='bg-white bg-opacity-95 backdrop-blur-sm rounded-lg shadow-2xl p-8 max-h-[90vh] overflow-y-auto'>
-            <h3 className='text-2xl font-semibold text-black text-center mb-2'>
+          <div className='bg-gray-900/95 backdrop-blur-md rounded-3xl shadow-2xl p-10 border border-gray-800'>
+            <h3 className='text-3xl font-bold text-white text-center mb-3'>
               Welcome Back
             </h3>
-            <p className='text-sm text-slate-700 text-center mb-8'>
+            <p className='text-gray-300 text-center mb-8 font-medium'>
               Please enter your details to login.
             </p>
-            <form className='space-y-4' onSubmit={handleSubmit}>
+            <form className='space-y-6' onSubmit={handleSubmit}>
                 <Input 
                     value={email}
                     onChange={(e)=>setEmail(e.target.value)}
@@ -96,22 +96,22 @@ const Login = () => {
                     type="password"
                 />
               {error && (
-                <p className='text-red-800 text-sm text-center bg-red-50 p-2 rounded'>{error}</p>
+                <p className='text-red-400 text-sm text-center bg-red-900/20 p-4 rounded-xl border border-red-800 font-medium'>{error}</p>
               )}
               <button
-                className={`w-full py-3 text-lg font-medium bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition flex items-center justify-center gap-2 ${loading ? 'opacity-60 cursor-not-allowed':''}`}
+                className={`w-full py-4 text-lg font-bold bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-2xl shadow-lg hover:from-purple-700 hover:to-purple-800 hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-3 transform hover:-translate-y-0.5 ${loading ? 'opacity-60 cursor-not-allowed':''}`}
                 disabled={loading}
                 type="submit"
               >
                 {loading ? (
                   <>
-                  <LoaderCircle className='animate-spin w-5 h-5'/>
+                  <LoaderCircle className='animate-spin w-6 h-6'/>
                   Logging in...
                   </>
                 ) : ("LOG IN")}
               </button>
-              <p className='text-sm text-slate-800 text-center mt-6'>Don't have an account?
-                <Link to="/signUp" className='font-medium text-primary underline hover:text-primary-dark transition-colors'>SignUp</Link>
+              <p className='text-gray-300 text-center mt-8 font-medium'>Don't have an account?
+                <Link to="/signUp" className='font-semibold text-purple-400 underline hover:text-purple-300 transition-colors ml-1'>SignUp</Link>
               </p>
             </form>
           </div>

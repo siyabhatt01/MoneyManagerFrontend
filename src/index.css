@@ -6,3 +6,9 @@ body{
   background-color: #fcfbfc;
   overflow-x: hidden;
 }
+/* For Chrome, Safari, Edge */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(84%) sepia(9%) saturate(83%) hue-rotate(180deg) brightness(95%) contrast(90%);
+  opacity: 0.8;
+  cursor: pointer;
+}

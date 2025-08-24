@@ -11,7 +11,7 @@ const Dashboard = ({children,activeMenu}) => {
     <>
         <MenuBar activeMenu={activeMenu}/>
           {user && (
-            <div className="flex">
+            <div className="flex bg-gray-950 min-h-screen">
             <div className="max-[1080px]:hidden">
             
               {/* {Side bar content} */}

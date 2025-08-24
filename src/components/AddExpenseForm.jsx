@@ -24,7 +24,7 @@ const AddExpenseForm = ({ onAddExpense, categories }) => {
     };
 
     return (
-        <div>
+        <div className="space-y-2">
             <EmojiPickerPopup
                 icon={expense.icon}
                 onSelect={(selectedIcon) => handleChange('icon', selectedIcon)}
@@ -56,10 +56,10 @@ const AddExpenseForm = ({ onAddExpense, categories }) => {
                 label="Date"
                 type="date"
             />
-            <div className="flex justify-end mt-6">
+            <div className="flex justify-end pt-4">
                 <button
                     onClick={() => { onAddExpense(expense) }}
-                    className='cursor-pointer inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-red-600 bg-red-100 rounded-lg shadow-sm hover:bg-red-200 hover:text-red-900 active:bg-red-300 transition-colors'>
+                    className='cursor-pointer inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-red-500 to-red-600 rounded-xl shadow-lg hover:from-red-600 hover:to-red-700 hover:shadow-xl active:from-red-700 active:to-red-800 transition-all duration-200 transform hover:-translate-y-0.5'>
                     Add Expense
                 </button>
             </div>

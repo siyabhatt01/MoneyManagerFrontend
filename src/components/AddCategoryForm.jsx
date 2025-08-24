@@ -35,7 +35,7 @@ const AddCategoryForm = ({onAddCategory,initialCategoryData,isEditing}) => {
         onAddCategory(category)
     }
   return (
-    <div className="p-4">
+    <div className="p-6 space-y-2">
 
         <EmojiPickerPopup icon={category.icon} onSelect={(selectedIcon)=>handleChange("icon",selectedIcon)}/>
 
@@ -53,13 +53,13 @@ const AddCategoryForm = ({onAddCategory,initialCategoryData,isEditing}) => {
             isSelect={true}
             options={categoryTypeOptions}
         />
-        <div className="flex-justify-end mt-6">
+        <div className="flex justify-end pt-4">
             <button type="button"
                 onClick={handleSubmit}
-                className='inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-xl 
-                bg-gradient-to-r from-purple-600 to-purple-700 shadow-md 
-                hover:from-purple-700 hover:to-purple-800 hover:-translate-y-0.5 
-                active:translate-y-0 active:shadow-sm transition-all duration-200'
+                className='inline-flex items-center justify-center px-8 py-3 text-white font-bold rounded-xl 
+                bg-gradient-to-r from-purple-600 to-purple-700 shadow-lg 
+                hover:from-purple-700 hover:to-purple-800 hover:shadow-xl hover:-translate-y-0.5 
+                active:translate-y-0 active:shadow-md transition-all duration-200'
             >{isEditing ? "Update Category":"Add Category"}</button>
         </div>
     </div>

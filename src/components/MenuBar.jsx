@@ -39,18 +39,18 @@ const MenuBar = ({ activeMenu }) => {
   }
 
   return (
-    <div className='flex items-center justify-between gap-5 bg-white border border-b border-gray-200/50 backdrop-blur-[2px] py-4 px-4 sm:px-7 sticky'>
+    <div className='flex items-center justify-between gap-5 bg-gray-900/95 backdrop-blur-md border-b border-gray-700/60 py-5 px-6 sm:px-8 sticky top-0 z-30 shadow-xl'>
 
       {/* {Left side - Menu button and title} */}
-      <div className='flex items-center gap-5'>
+      <div className='flex items-center gap-6'>
         <button
-          className='block lg:hidden text-black hover:bg-gray-100 p-1 rounded transition-colors'
+          className='block lg:hidden text-gray-300 hover:bg-gray-800 p-2 rounded-xl transition-all duration-200 hover:shadow-lg hover:text-white'
           onClick={() => setOpenMenu(!openMenu)}>
           {openMenu ? (<X className='text-2xl' />) : (<Menu className='text-2xl' />)}
         </button>
-        <div className='flex items-center gap-2'>
-          <img src={assets.logo} alt='logo' className='h-15 w-15' />
-          <span className='text-lg font-medium text-black truncate'>Money Manager</span>
+        <div className='flex items-center gap-3'>
+          <img src={assets.logo} alt='logo' className='h-16 w-16 rounded-full' />
+          <span className='text-4xl font-bold text-white truncate '>Money Manager</span>
         </div>
       </div>
 
@@ -58,31 +58,31 @@ const MenuBar = ({ activeMenu }) => {
       <div className="relative" ref={dropdownRef}>
         <button
           onClick={() => { setShowDropdown(!showDropdown) }}
-          className="flex items-center justify-center w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-offset-2">
-          <User className='text-purple-500' />
+          className="flex items-center justify-center w-15 h-15 bg-gray-700 hover:bg-gray-600 rounded-full  focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 ">
+          <User className='text-purple-400 bg-gray-700 hover:bg-gray-600' />
         </button>
         {
           showDropdown && (
-            <div className='absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50'>
+            <div className='absolute right-0 mt-3 w-56 bg-gray-800 rounded-2xl shadow-2xl border border-gray-700 py-2 z-50 backdrop-blur-sm'>
               {/* User Info */}
-              <div className='px-4 py-3 border-b border-gray-100'>
-                <div className='flex items-center gap-3'>
-                  <div className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full">
-                    <User className='w-4 h-4 text-purple-600' />
+              <div className='px-5 py-4 border-b border-gray-700'>
+                <div className='flex items-center gap-4'>
+                  <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-purple-900 to-purple-800 rounded-full">
+                    <User className='w-5 h-5 text-purple-300' />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-800 truncate  overflow-hidden ">
+                    <p className="text-sm font-semibold text-gray-100 truncate overflow-hidden">
                       {user.fullName}
                     </p>
-                    <p className="text-xs text-gray-500 truncate overflow-hidden">{user.email}</p>
+                    <p className="text-xs text-gray-400 truncate overflow-hidden">{user.email}</p>
                   </div>
 
                 </div>
               </div>
               {/* Drop Options */}
-              <div className="py-1">
-                <button onClick={handleLogout} className="flex items-center gap-3 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150">
-                  <LogOut className='w-4 h-4 text-ggray-500' />
+              <div className="py-2">
+                <button onClick={handleLogout} className="flex items-center gap-3 w-full px-5 py-3 text-sm text-gray-300 hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-lg mx-2">
+                  <LogOut className='w-4 h-4 text-gray-400' />
                   <span>Logout</span>
                 </button>
               </div>
@@ -94,7 +94,7 @@ const MenuBar = ({ activeMenu }) => {
 
       {/* Mobile Side Menu */}
       {openMenu &&
-        <div className='fixed left-0 right-0 bg-white border-b border-gray-200 lg:hidden z-20 top-[70px]'>
+        <div className='fixed left-0 right-0 bg-gray-900/95 backdrop-blur-md border-b border-gray-700/60 lg:hidden z-20 top-[76px] shadow-2xl'>
           <Sidebar activeMenu={activeMenu} />
         </div>}
     </div>
