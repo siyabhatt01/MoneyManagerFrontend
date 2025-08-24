@@ -8,6 +8,7 @@ import Category from "./pages/Category";
 import Filter from "./pages/Filter";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import LandingPage from './pages/LandingPage';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/filter" element={<Filter/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/signUp" element={<SignUp/>}/>
+            <Route path="/landingPage" element={<LandingPage/>}/>
           </Routes>
      
 
@@ -36,7 +38,7 @@ const Root = ()=>{
   return isAuthenticated ? (
     <Navigate to="/dashboard" />
   ) :
-    <Navigate to="/login"/>
+    <Navigate to="/landingPage"/>
 
 }
 
